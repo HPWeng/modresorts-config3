@@ -1,19 +1,20 @@
 version: 1.0
 app:
-  endpoints: public
-  services:
-    - crn: 'crn:v1:bluemix:public:mqcloud:us-east:a/26a5e866a11a5014f2eca2acab86f048:123019ac-5871-4f20-8e10-1207b38721fc::'
-  #  - crn: 'crn:v1:bluemix:public:dashdb-for-transactions:us-east:a/26a5e866a11a5014f2eca2acab86f048:2aad950f-9ab0-4adb-a64e-cb97b3dff0c1::'
-  #  - name: mq-service
-  #    type: mqcloud
+  version: "fbb0dc1e-aa03-40a1-a84b-10848b46d757"
   instances:
     min: 1
     max: 1
-  version: "e39c114c-d328-449a-aa86-9cd126c3eb2f"
+  resources:
+    cpu: 1
   env:
-    - name: JVM_ARGS
-      value: "-DenvironmentType=prod"
-    - name: test_Value
-      value: "testData"
-    - name: MAX
-      value: "5"
+    - name: SOME_ENV_VAR_NAME
+      value: some_env_var_value
+  variables:
+    - name: some_liberty_variable_name
+      value: some_liberty_variable_value
+  systemProperties:
+    - name: some_system_property_name
+      value: some_system_property_value.
+  endpoints: public
+  services:
+    - crn: 'crn:v1:bluemix:public:mqcloud:us-east:a/26a5e866a11a5014f2eca2acab86f048:123019ac-5871-4f20-8e10-1207b38721fc::'
